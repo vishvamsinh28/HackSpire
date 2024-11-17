@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackSpire 1.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animation class for scroll-triggered fade-in effect */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        #name {
+            font-family: "Doto", sans-serif;
+        }
+
+        * {
+            font-family: "Source Code Pro", monospace;
+        }
+
+        footer {
+            width: 100%;
+            /* Ensure the footer spans the entire width */
+            padding: 1rem;
+            /* Adjust padding if necessary */
+            background-color: #1f2937;
+            /* bg-gray-900 */
+            text-align: center;
+            border-top: 2px solid #10b981;
+            /* border-green-500 */
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+    <!-- Navbar -->
+    <header class="p-5 bg-gray-900 border-b border-green-500">
+        <div class="flex justify-between items-center">
+            <div class="text-xl font-bold text-green-400">HackSpire 1.0</div>
+            <!-- Hamburger Button (Visible on mobile) -->
+            <button id="menu-toggle" class="lg:hidden text-green-400 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+            <!-- Nav Links (Visible on larger screens) -->
+            <nav id="nav-links" class="hidden lg:flex space-x-4">
+                <a href="#about" class="hover:text-green-400 transition ease-in-out duration-300">About Us</a>
+                <a href="#sponsors" class="hover:text-green-400 transition ease-in-out duration-300">Sponsors</a>
+                <a href="#prizes" class="hover:text-green-400 transition ease-in-out duration-300">Prizes</a>
+                <a href="#timeline" class="hover:text-green-400 transition ease-in-out duration-300">Timeline</a>
+                <a href="#faq" class="hover:text-green-400 transition ease-in-out duration-300">FAQs</a>
+            </nav>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <nav id="mobile-menu" class="lg:hidden hidden flex-col mt-4 space-y-2">
+            <a href="#about" class="block px-3 py-2 rounded-md hover:bg-gray-700">About Us</a>
+            <a href="#sponsors" class="block px-3 py-2 rounded-md hover:bg-gray-700">Sponsors</a>
+            <a href="#prizes" class="block px-3 py-2 rounded-md hover:bg-gray-700">Prizes</a>
+            <a href="#timeline" class="block px-3 py-2 rounded-md hover:bg-gray-700">Timeline</a>
+            <a href="#faq" class="block px-3 py-2 rounded-md hover:bg-gray-700">FAQs</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center text-center pt-20 fade-in">
+        <h1 class="text-5xl font-extrabold text-green-400" id="name">Codethon 1.0</h1>
+        <p class="text-lg mt-2">Code. Create. Conquer.</p>
+        <div class="apply-button" data-hackathon-slug="hackspire" data-button-theme="dark-inverted"
+            style="height: 44px; width: 312px"></div>
+
+        <!-- Countdown Timer -->
+        <div class="flex space-x-3 mt-10 text-green-400 m-2">
+            <div id="countdown-days" class="text-2xl font-bold">00</div>
+            <div class="text-2xl font-bold">:</div>
+            <div id="countdown-hours" class="text-2xl font-bold">00</div>
+            <div class="text-2xl font-bold">:</div>
+            <div id="countdown-minutes" class="text-2xl font-bold">00</div>
+            <div class="text-2xl font-bold">:</div>
+            <div id="countdown-seconds" class="text-2xl font-bold">00</div>
+        </div>
+        <p class="mt-2">Innovation launches in...</p>
+
+        <!-- About Us -->
+        <section id="about" class="py-10 fade-in mx-4">
+            <h2 class="text-center text-3xl font-bold text-green-400">&lt;About Us&gt;</h2>
+            <div class="mt-5 max-w-xl mx-auto bg-gray-800 p-5 rounded-lg text-center">
+                <p class="text-gray-300">
+                    HackSpire 1.0 is an innovative hackathon designed to foster creativity, problem-solving, and
+                    technical skill. Participants will have the opportunity to collaborate, create, and compete, pushing
+                    the boundaries of technology to solve real-world challenges.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sponsors -->
+        <section id="sponsors" class="py-10 fade-in mx-4">
+            <h2 class="text-center text-3xl font-bold text-green-400">&lt;Sponsors&gt;</h2>
+            <p class="text-center text-gray-300 mt-5">We are grateful to our generous sponsors who make this event
+                possible.</p>
+            <center>
+                <img src="Devfolio_Logo-White.png" class="mt-8 w-44 h-auto" alt="DEVFOLIO LOGO">
+                <img src="Polygon_Logo-White.png" class="mt-8 w-44 h-auto" alt="POLYGON LOGO">
+                <img src="ethindia-light.png" class="mt-8 w-44 h-auto" alt="ETHINDIA LOGO">
+            </center>
+        </section>
+
+        <!-- Prizes -->
+        <section id="prizes" class="py-10 text-center fade-in m-2">
+            <h2 class="text-3xl font-bold text-green-400">&lt;Prizes&gt;</h2>
+            <p class="text-2xl mt-5 text-gray-400">Announced Soon</p>
+            <p class="text-gray-300 mt-2">Exciting prizes await our winners. Stay tuned for updates!</p>
+        </section>
+
+        <!-- Timeline -->
+        <section id="timeline" class="py-10 fade-in">
+            <h2 class="text-center text-3xl font-bold text-green-400">&lt;Timeline&gt;</h2>
+            <div class="mt-10 max-w-lg mx-auto">
+                <div
+                    class="flex flex-col lg:flex-row lg:space-x-10 space-y-10 lg:space-y-0 items-center justify-center">
+                    <div class="text-center">
+                        <div class="w-4 h-4 bg-green-400 rounded-full mx-auto"></div>
+                        <p class="mt-2 text-base lg:text-sm font-medium">Hackathon Starts</p>
+                        <p class="text-gray-400 text-sm lg:text-xs">7th Dec @ 9:00AM</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-4 h-4 bg-green-400 rounded-full mx-auto"></div>
+                        <p class="mt-2 text-base lg:text-sm font-medium">Hackathon Ends</p>
+                        <p class="text-gray-400 text-sm lg:text-xs">8th Dec @ 10:00PM</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-4 h-4 bg-green-400 rounded-full mx-auto"></div>
+                        <p class="mt-2 text-base lg:text-sm font-medium">Results</p>
+                        <p class="text-gray-400 text-sm lg:text-xs">10th @ 11:00PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- FAQ -->
+        <section id="faq" class="py-10 text-center fade-in">
+            <h2 class="text-3xl font-bold text-green-400">&lt;FAQs&gt;</h2>
+            <div class="mt-10 bg-gray-800 w-3/4 mx-auto p-5 rounded-lg space-y-4">
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left text-gray-300 font-medium">
+                        🗓️ When is the Codethon 1.0 scheduled? <span class="icon">+</span>
+                    </button>
+                    <p class="faq-answer text-gray-400 hidden">Codethon 1.0 is scheduled for 7th & 8th Dec'24.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left text-gray-300 font-medium">
+                        🌐 What is the mode of Codethon 1.0? <span class="icon">+</span>
+                    </button>
+                    <p class="faq-answer text-gray-400 hidden">The event will be conducted in online mode.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left text-gray-300 font-medium">
+                        ✅ Are there any basic requirements for participating? <span class="icon">+</span>
+                    </button>
+                    <p class="faq-answer text-gray-400 hidden">No basic requirements. Participants should be willing to
+                        innovate and collaborate.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left text-gray-300 font-medium">
+                        🏫 What is the eligibility criteria to participate in Codethon 1.0? <span class="icon">+</span>
+                    </button>
+                    <p class="faq-answer text-gray-400 hidden">Students from all colleges are eligible to participate.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left text-gray-300 font-medium">
+                        💵 Is there a registration/participation fee for the event? <span class="icon">+</span>
+                    </button>
+                    <p class="faq-answer text-gray-400 hidden">No, there is no registration or participation fee.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left text-gray-300 font-medium">
+                        🏆 How will the winners be selected? <span class="icon">+</span>
+                    </button>
+                    <p class="faq-answer text-gray-400 hidden">The panel of judges will evaluate the teams or
+                        individuals based on their project.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left text-gray-300 font-medium">
+                        👥 What should be the team size? <span class="icon">+</span>
+                    </button>
+                    <p class="faq-answer text-gray-400 hidden">Teams should consist of 1-4 members.</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question w-full text-left text-gray-300 font-medium">
+                        🤝 Are team members from other colleges allowed? <span class="icon">+</span>
+                    </button>
+                    <p class="faq-answer text-gray-400 hidden">Yes, participants from different colleges can form teams
+                        together.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 p-5 text-center border-t border-green-500 fade-in w-full">
+            © 2024 HackSpire</p>
+        </footer>
+
+        <!-- FontAwesome for icons -->
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+        <!-- JavaScript for animations and navbar toggle -->
+        <script>
+            // Scroll-triggered animation
+            const sections = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+
+            // Navbar toggle for mobile menu
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            function updateCountdown() {
+                const targetDate = new Date('2024-12-07T00:00:00'); // Target date: December 7, 2024
+                const currentDate = new Date();
+
+                const timeDifference = targetDate - currentDate;
+
+                if (timeDifference <= 0) {
+                    // Countdown has finished
+                    document.getElementById("countdown-days").textContent = "00";
+                    document.getElementById("countdown-hours").textContent = "00";
+                    document.getElementById("countdown-minutes").textContent = "00";
+                    document.getElementById("countdown-seconds").textContent = "00";
+                    return;
+                }
+
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown-days").textContent = String(days).padStart(2, '0');
+                document.getElementById("countdown-hours").textContent = String(hours).padStart(2, '0');
+                document.getElementById("countdown-minutes").textContent = String(minutes).padStart(2, '0');
+                document.getElementById("countdown-seconds").textContent = String(seconds).padStart(2, '0');
+            }
+
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = question.querySelector('.icon');
+
+                question.addEventListener('click', () => {
+                    answer.classList.toggle('hidden');
+                    icon.textContent = answer.classList.contains('hidden') ? '+' : '-';
+                });
+            });
+
+        </script>
+        <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
+</body>
+
+</html>
